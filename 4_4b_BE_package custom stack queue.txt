@@ -1,0 +1,18 @@
+package customstackqueue;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Customstack<Object> queue = new Customstack<>();
+
+		        // Enqueuing strings and integers
+		        queue.Enqueue("Hello");
+		        queue.Enqueue(123);
+		        queue.Enqueue("World");
+
+		        // Dequeuing and displaying elements
+		        while (!queue.IsEmpty()) {
+		            System.out.println("Dequeued: " + queue.Dequeue());
+		        }
+		    }
+		}

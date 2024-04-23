@@ -1,0 +1,32 @@
+package bruteForceSort;
+import java.util.Arrays;
+public class BruteForceSort {
+    public static void main(String[] args) {
+        int[] array = initializeArray(8,16,98); 
+        System.out.println("Original array: " + Arrays.toString(array));
+
+        bruteForceSort(array);
+
+        System.out.println("Sorted array: " + Arrays.toString(array));
+    }
+
+    public static void bruteForceSort(int[] array) {
+        for (int i = 0; i < array.length - 1; i++) {
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[j] < array[i]) {
+                    int temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
+                }
+            }
+        }
+    }
+
+    public static int[] initializeArray(int size, int min, int max) {
+        int[] array = new int[size];
+        for (int i = 0; i < size; i++) {
+            array[i] = (int) (Math.random() * (max - min + 1) + min);
+        }
+        return array;
+    }
+}

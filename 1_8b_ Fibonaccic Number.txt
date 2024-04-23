@@ -1,0 +1,61 @@
+package fibonaccicNumber;
+import java.util.Scanner;
+public class FibonaccicNumber {
+	public static int fibonacci(int n) {
+        if (n <= 1) {
+            return n;
+        }
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+    
+    
+    public static int[] fibonacciSequence(int n) {
+        int[] sequence = new int[n];
+        for (int i = 0; i < n; i++) {
+            sequence[i] = fibonacci(i);
+        }
+        return sequence;
+    }
+    public static int getInput(Scanner scanner, String prompt) {
+        int input;
+        while (true) {
+            System.out.print(prompt);
+            if (scanner.hasNextInt()) {
+                input = scanner.nextInt();
+                if (input > 0) {
+                    break;
+                } else {
+                    System.out.println("Please enter a positive number.");
+                }
+            } else {
+                System.out.println("Please enter a valid integer.");
+                scanner.next();
+            }
+        }
+        return input;
+    }
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+       
+        int n = getInput(scanner, "Enter the number of Fibonacci numbers to generate: ");
+        
+        
+        int[] fibSequence = fibonacciSequence(n);
+        System.out.print("Fibonacci Sequence: ");
+        for (int i = 0; i < n; i++) {
+            System.out.print(fibSequence[i] + " ");
+        }
+        System.out.println();
+        
+       
+        int nth = getInput(scanner, "Enter the value of n to find the nth Fibonacci number: ");
+        
+        
+        int nthFibonacci = fibonacci(nth);
+        System.out.println("The " + nth + "th Fibonacci number: " + nthFibonacci);
+        
+        scanner.close();
+    }
+}

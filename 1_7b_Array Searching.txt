@@ -1,0 +1,26 @@
+package linearSearch;
+public class LinearSearch {
+    public static void main(String[] args) {
+        int[] array = {80,120,160,210,240,};
+        int target =120 ;
+        int index = PerformLinearSearch(array, target);
+        if (index != -1) {
+            System.out.println("Element " + target + " found at index " + index);
+        } else {
+            System.out.println("Element " + target + " not found in the array");
+        }
+    }
+
+    public static int PerformLinearSearch(int[] array, int target) {
+        int index = -1; // Initialize index as -1
+        int i = 0;
+        while (i < array.length) {
+            if (array[i] == target) {
+                index = i; // Update index if element is found
+                break; // Exit loop once element is found
+            }
+            i++;
+        }
+        return index;
+    }
+}

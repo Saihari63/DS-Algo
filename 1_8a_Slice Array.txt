@@ -1,0 +1,29 @@
+package sliceArray;
+import java.util.Arrays;
+public class SliceArray {
+	public static int[] sliceArray(int[] arr, int start, int end) {
+    if (start < 0 || end > arr.length || start > end) {
+        throw new IllegalArgumentException("Invalid start or end index");
+    }
+    
+    int[] result = new int[end - start];
+    for (int i = start; i < end; i++) {
+        result[i - start] = arr[i];
+    }
+    return result;
+}
+
+public static void main(String[] args) {
+    int[] arr = {80,50,120,160,210};
+    int start1 = 1;
+    int end1 = 3;
+    
+    int[] slicedArray1 = sliceArray(arr, start1, end1);
+    System.out.println("Sliced Array (start=1, end=3): "+ Arrays.toString(slicedArray1));
+    
+    int start2 = 0;
+    int end2 = 4;
+    int[] slicedArray2 = sliceArray(arr, start2, end2);
+    System.out.println("Sliced Array (start=0, end=4):"+ Arrays.toString(slicedArray2));
+}
+}

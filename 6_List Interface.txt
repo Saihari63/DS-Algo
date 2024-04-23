@@ -1,0 +1,25 @@
+package stringoperation;
+public class StringUtil {
+    public static String extractMiddleSubstring(String str1, String str2, int length) {
+        if (str1.isEmpty() || str2.isEmpty() || length <= 0) {
+            return "Invalid input";
+        }
+
+        String concatenated = str1.concat(str2);
+
+        int middleIndex = concatenated.length() / 2;
+
+        int startIndex = Math.max(0, middleIndex - length / 2);
+
+        String middleSubstring = concatenated.substring(startIndex, startIndex + length);
+
+        return middleSubstring;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(extractMiddleSubstring("hello", "world", 3));     // Outputs: "low"
+        System.out.println(extractMiddleSubstring("programming", "is", 5)); // Outputs: "mming"
+        System.out.println(extractMiddleSubstring("open", "ai", 2));         // Outputs: "pe"
+        System.out.println(extractMiddleSubstring("", "universe", 6));      // Outputs: "univer"
+    }
+}

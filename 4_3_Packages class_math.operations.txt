@@ -1,0 +1,49 @@
+package com.math.operations;
+
+public class Addition {
+	public static int add(int a, int b) {
+        return a + b;
+    }
+}
+
+package com.math.operations;
+
+public class Subtraction {
+	public static int subtract(int a, int b) {
+        return a - b;
+    }
+}
+
+package com.math.operations;
+
+public class Multiplication {
+	public static int multiply(int a, int b) {
+        return a * b;
+    }
+}
+
+package com.math.operations;
+
+public class Division {
+	public static int divide(int a, int b) {
+        if (b == 0) {
+            throw new ArithmeticException("Division by zero");
+        }
+        return a / b;
+    }
+}
+
+package com.math.operations;
+import com.math.operations.*;
+
+public class Calculator {
+    public static void main(String[] args) {
+        int a = 80;
+        int b = 160;
+        
+        System.out.println("Addition: " + Addition.add(a, b));
+        System.out.println("Subtraction: " + Subtraction.subtract(a, b));
+        System.out.println("Multiplication: " + Multiplication.multiply(a, b));
+        System.out.println("Division: " + Division.divide(a, b));
+    }
+}
